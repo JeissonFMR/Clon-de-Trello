@@ -1,10 +1,10 @@
-<div class="w-screen h-screen relative bg-gray-50">
-  <div class="absolute w-full h-full">
-    <img class="absolute w-96 left-0 bottom-0" src="/assets/svg/2.svg" alt="bg left">
-    <img class="absolute w-96 right-0 bottom-0" src="/assets/svg/1.svg" alt="bg left">
+<div class="w-screen h-screen relative bg-white sm:bg-gray-50">
+  <div class="absolute w-full h-full hidden sm:block">
+    <img loading="lazy" class="absolute w-60 lg:w-96 left-0 bottom-0" src="/assets/svg/2.svg" alt="logo">
+    <img loading="lazy" class="absolute w-60 lg:w-96 right-0 bottom-0" src="/assets/svg/1.svg" alt="bg right">
   </div>
 
-  <div class="relative w-4/12 m-auto">
+  <div class="relative w-full sm:w-7/12 md:w-6/12 lg:w-4/12 m-auto">
     <header class="pt-6 pb-2 flex justify-center">
       <img class="w-56" src="/assets/images/logo.png" alt="logo">
     </header>
@@ -23,11 +23,22 @@
           </div>
 
           <div>
-            <button type="submit" class="text-white w-full font-medium rounded text-sm bg-green-700 px-5 py-2 ">Log
-              In</button>
+            <app-btn [typeBtn]="'submit'">Log In</app-btn>
           </div>
         </form>
       </div>
+
+      <hr class="my-4 border-b-1 border-r-gray-300">
+      <div class="flex justify-center items-center space-x-0 space-y-2 md:space-x-2 flex-col">
+
+        <a routerLink="/forgot-password" class="text-blue-600 font-light">Can't log in?</a>
+        <span class="text-gray-500 hidden md:block">∙</span>
+        <a routerLink="/forgot-password" class="text-blue-600 font-light">Sign up for an account</a>
+      </div>
     </div>
+  </div>
+
+  <div class="flex justify-center">
+    <img class="w-32 mt-4" src="/assets/images/horizontal-logo-gradient-blue-atlassian.png" alt="logo">
   </div>
 </div>
