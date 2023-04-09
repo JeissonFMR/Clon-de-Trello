@@ -1,5 +1,7 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
+import { TodoDialogComponent } from 'src/app/components/todo-dialog/todo-dialog.component';
 import { Column, ToDo } from 'src/app/models/todo.models';
 
 @Component({
@@ -75,6 +77,11 @@ export class BoardComponent {
   //   }
   // ]
 
+
+  constructor(private dialog: Dialog) {
+
+  }
+
   drop($event: CdkDragDrop<ToDo[]>) {
     console.log($event);
 
@@ -93,6 +100,25 @@ export class BoardComponent {
     this.columns.push({
       title: 'New columns',
       todos: []
+    })
+  }
+
+
+  openDialog(todo: ToDo) {
+    const dialogRef = this.dialog.open(TodoDialogComponent, {
+      minWidth: '300px',
+      maxWidth: '50%',
+
+      //pasar la información al componente dialog
+      data: {
+        todo: todo,
+
+      }
+    });
+
+    //recibir informacion del dialogo
+    dialogRef.closed.subscribe(outputAst => {
+      console.log(outputAst);
     })
   }
 }
